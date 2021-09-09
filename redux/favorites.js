@@ -6,7 +6,9 @@ export const favorites = (state = [], action) => {
             if (state.includes(action.payload)) {
                 return state;
             }
-            case ActionTypes.DELETE_FAVORITE:
+            return state.concat(action.payload);
+
+        case ActionTypes.DELETE_FAVORITE:
             return state.filter(favorite => favorite !== action.payload);
 
         default:
